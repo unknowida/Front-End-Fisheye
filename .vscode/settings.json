@@ -1,0 +1,17 @@
+{
+    "workbench.colorCustomizations": {
+        "[Night Owl]": {
+            "activityBar.background": "#000C1D",
+            "activityBar.border": "#102a44",
+            "editorGroup.border": "#d9e409",
+            "sideBar.background": "#000000",
+            "sideBar.border": "#057493",
+            "sideBar.foreground": "#8BADC1"
+        },
+        "eslint.format.enable": true,
+        "vsicons.dontShowNewVersionMessage": true,
+        "activityBar.background": "#093601",
+        "titleBar.activeBackground": "#0C4B02",
+        "titleBar.activeForeground": "#EFFFEC"
+    }
+}
