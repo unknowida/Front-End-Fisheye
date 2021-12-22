@@ -1,6 +1,10 @@
 async function getPhotographers() {
-  const response = await fetch('./data/photographers.json')
-  const photographersAndMediaJson = await response.json()
+// 1 fois pour reccupération de la réponse
+    const response = await fetch('./data/photographers.json')
+// 2 eme fois pour la requete transforme en JSON
+    const photographersAndMediaJson = await response.json()
+    
+// il s'agit de réccuperer uniquement le tableau ["photographers"] du fichier JSON
   return photographersAndMediaJson.photographers
 
   // // Penser à remplacer par les données récupérées dans le json
@@ -39,8 +43,9 @@ async function getPhotographers() {
 //     });
 // };
 
+// Fonction "init" (ou appelé autrement) créer qui permet l'initialisation de la page
 async function init() {
-  // Récupère les datas des photographes
+  // Récupère les datas des photographes 
   const photographers = await getPhotographers()
 
   // displayData(photographers);
