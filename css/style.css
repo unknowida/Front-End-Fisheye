@@ -2,6 +2,7 @@
 
 body {
     font-family: "DM Sans", sans-serif;
+    font-weight: 400 normal;
     margin: 0;
 }
 
@@ -42,6 +43,24 @@ h1 {
 .photographer_section article h2 {
     color: #D3573C;
     font-size: 36px;
+    line-height: 47px;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 5px;
+
+}
+
+.photographer_section article p {
+    font-size: 10px;
+    line-height: 13.02px;
+    align-items: center;
+
+    color: #000000;
+
+}
+.photographer_section article h3 {
+    color: #000000;
+
 }
 
 .photographer_section article img {

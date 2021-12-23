@@ -1,13 +1,13 @@
 async function getPhotographers() {
-// 1 fois pour reccupération de la réponse
-    const response = await fetch('./data/photographers.json')
-// 2 eme fois pour la requete transforme en JSON
-    const photographersAndMediaJson = await response.json()
-    
-// il s'agit de réccuperer uniquement le tableau ["photographers"] du fichier JSON
+  // 1 fois pour reccupération de la réponse
+  const response = await fetch('./data/photographers.json')
+  // 2 eme fois pour la requete transforme en JSON
+  const photographersAndMediaJson = await response.json()
+
+  // il s'agit de réccuperer uniquement le tableau ["photographers"] du fichier JSON
   return photographersAndMediaJson.photographers
 
-  // // Penser à remplacer par les données récupérées dans le json
+  // Penser à remplacer par les données récupérées dans le json
   // const photographers = [
   //     {
   //         "name": "Ma data test",
@@ -43,21 +43,22 @@ async function getPhotographers() {
 //     });
 // };
 
-// Fonction "init" (ou appelé autrement) créer qui permet l'initialisation de la page
-async function init() {
-  // Récupère les datas des photographes 
+// Fonction "loadAndDisplayPhotographers" (ou appelé autrement) est créée pour permettre l'initialisation de la page
+async function loadAndDisplayPhotographers() {
+  // Récupère les datas des photographes
   const photographers = await getPhotographers()
 
   // displayData(photographers);
   const photographerSectionElement = document.querySelector(
     '.photographer_section',
   )
-
+// Création d'une boucle "for(const...of...){} qui va lire et associer dans l'ordre la variable "photograph" pour chaque accolade du fichier JSON du la clé ["photographers"]
   for (const photograph of photographers) {
-      const response = photographerFactory(photograph)
-      photographerSectionElement.appendChild(response.getUserCardDOM())
+    const response = photographerFactory(photograph)
+    photographerSectionElement.appendChild(response.getUserCardDOM())
     // debugger
   }
 }
 
-init()
+// Page d'acceuil vide aprèes chargement HTML/CSS , ensuite on fait loadAndDisplayPhotographers() pour amorcer toutes les étapes contenues dans la (function loadAndDisplayPhotographers())
+loadAndDisplayPhotographers()
