@@ -52,7 +52,7 @@ async function loadAndDisplayPhotographers() {
   const photographerSectionElement = document.querySelector(
     '.photographer_section',
   )
-// Création d'une boucle "for(const...of...){} qui va lire et associer dans l'ordre la variable "photograph" pour chaque accolade du fichier JSON du la clé ["photographers"]
+// Création d'une boucle "for(const...of...){} qui va lire et associer dans l'ordre la variable "photograph" pour chaque accolade (ou tableau objet) du fichier JSON du la clé ["photographers"]
   for (const photograph of photographers) {
     const response = photographerFactory(photograph)
     photographerSectionElement.appendChild(response.getUserCardDOM())
