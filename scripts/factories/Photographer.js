@@ -1,6 +1,6 @@
 function photographerFactory(data) {
-  //*? */ Pourquoi il y a seulement name et portrait dans l'accolade (eclaircicement ligne 3)
-  const { name, portrait } = data
+  // Notion destructuring est une expression JavaScript qui permet d'extraire (unpack) des données d'un tableau ou d'un objet grâce à une syntaxe dont la forme ressemble à la structure du tableau ou de l'objet.
+  const { name, id, city, country, tagline, price, portrait } = data
 
   const picture = `assets/photographers/${portrait}`
 
@@ -18,15 +18,20 @@ function photographerFactory(data) {
 
     //?   Pourquoi on ne peut pas inserer X2 element (ex.city+country)
     const spanLocalisation = document.createElement('span')
-    spanLocalisation.textContent = data.city
+    spanLocalisation.className = 'localisations'
+    spanLocalisation.textContent = `${city}, ${country}`
     article.appendChild(spanLocalisation)
 
-      const resume = document.createElement('p')
-      resume.textContent = data.tagline
-      article.appendChild(resume)
+    const spanResume = document.createElement('span')
+    spanResume.className = 'taglineResume'
+    spanResume.textContent = tagline
+    article.appendChild(spanResume)
 
-      const cost = document.createElement('h3')
-    
+    const cost = document.createElement('span')
+    cost.className = 'priceByDay'
+    cost.textContent = `${price}€/jour`
+    article.appendChild(cost)
+    // €/jour
 
     return article
   }

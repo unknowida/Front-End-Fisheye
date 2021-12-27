@@ -6,6 +6,7 @@ async function getPhotographers() {
 
   // il s'agit de réccuperer uniquement le tableau ["photographers"] du fichier JSON
   return photographersAndMediaJson.photographers
+  
 
   // Penser à remplacer par les données récupérées dans le json
   // const photographers = [
