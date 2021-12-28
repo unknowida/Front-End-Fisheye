@@ -1,13 +1,25 @@
 @import url('photographer.css');
 
+
+
+html {
+  box-sizing: border-box;
+  margin: auto;
+  max-width: 1440px;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+  
+}
+
 body {
   font-family: 'DM Sans', sans-serif;
   font-weight: 400 normal;
   color: #000000;
   padding-left: 100px;
   padding-right: 100px;
-  /* max-width: 1440px;
-  max-height: 1024px; */
+  
+  /* max-height: 1024px; */
 }
 
 header {
