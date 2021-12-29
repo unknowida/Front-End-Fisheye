@@ -16,7 +16,15 @@ function photographerFactory(data) {
     h2.textContent = name
     article.appendChild(h2)
 
-    //?   Pourquoi on ne peut pas inserer X2 element (ex.city+country)
+    const a = document.createElement('a');
+      // const linkPictureAndText = document.createTextNode("my title text");
+    a.appendChild(a);
+    a.textContent = `${name}, ${picture}`
+
+      // a.title = "my title text";
+      a.href = "http://example.com";
+      // document.`${h2}+ ${img}`.appendChild(a);
+
     const spanLocalisation = document.createElement('span')
     spanLocalisation.className = 'localisations'
     spanLocalisation.textContent = `${city}, ${country}`
@@ -31,7 +39,6 @@ function photographerFactory(data) {
     cost.className = 'priceByDay'
     cost.textContent = `${price}€/jour`
     article.appendChild(cost)
-    // €/jour
 
     return article
   }
