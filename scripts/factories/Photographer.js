@@ -10,8 +10,8 @@ function photographerFactory(dataPhotographers) {
   function createAllphotographersDOM() {
     const article = document.createElement('article')
 
-    const searchParams = new URLSearchParams(location.href)
-    searchParams.get('photographerId')
+    // const searchParams = new URLSearchParams(location.href)
+    // searchParams.get('photographerId')
 
     const img = document.createElement('img')
     img.setAttribute('src', picture)
@@ -21,9 +21,7 @@ function photographerFactory(dataPhotographers) {
     h2.textContent = name
     article.appendChild(h2)
 
-    const link = document.createElement('a')
-    link.setAttribute('href', searchParams)
-    link.appendChild(article)
+  
 
     // DOM Elements
 

@@ -12,22 +12,24 @@ function mediaFactory(dataMedia) {
   } = dataMedia
   // cons
 
-  const pictures = `assets/images/${image}`
+  const linkPhotographer = `assets/images/${image}`
+ 
 
   //La function "createCardByPhotographerDOM" permettra d'éditer le DOM sans toucher au fichier HTML dans ce cas.
   function createCardByPhotographerDOM() {
     const article = document.createElement('article')
 
-    const searchParams = new URLSearchParams(location.href)
+    const searchParams = new URLSearchParams(location.search)
     searchParams.get('photographerId')
 
+
     const link = document.createElement('a')
-    link.setAttribute('href', searchParams)
+    link.setAttribute('href', linkPhotographer)
     link.appendChild(article)
 
-    const img = document.createElement('img')
-    img.setAttribute('src', pictures)
-    article.appendChild(img)
+    // const img = document.createElement('img')
+    // img.setAttribute('src', pictures)
+    // article.appendChild(img)
 
     //   const h2 = document.createElement('h2')
     //   h2.textContent = name
