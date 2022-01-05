@@ -6,7 +6,6 @@ async function getPhotographers() {
 
   // il s'agit de réccuperer uniquement le tableau ["photographers"] du fichier JSON
   return photographersAndMediaJson.photographers
-  
 
   // Penser à remplacer par les données récupérées dans le json
   // const photographers = [
@@ -53,11 +52,12 @@ async function loadAndDisplayPhotographers() {
   const photographerSectionElement = document.querySelector(
     '.photographer_section',
   )
-// Création d'une boucle "for(const...of...){} qui va lire et associer dans l'ordre la variable "photograph" pour chaque accolade (ou tableau objet) du fichier JSON du la clé ["photographers"]
+  // Création d'une boucle "for(const...of...){} qui va lire et associer dans l'ordre la variable "photograph" pour chaque accolade (ou tableau objet) du fichier JSON du la clé ["photographers"]
   for (const photograph of photographers) {
+    
     const response = photographerFactory(photograph)
     photographerSectionElement.appendChild(response.createAllphotographersDOM())
-    // debugger
+  
   }
 }
 

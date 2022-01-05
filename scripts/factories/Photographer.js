@@ -13,17 +13,27 @@ function photographerFactory(dataPhotographers) {
     // const searchParams = new URLSearchParams(location.href)
     // searchParams.get('photographerId')
 
+    const link = document.createElement('a')
+    link.setAttribute('href','photographer.html')
+
     const img = document.createElement('img')
     img.setAttribute('src', picture)
-    article.appendChild(img)
+    link.appendChild(img)
 
     const h2 = document.createElement('h2')
     h2.textContent = name
-    article.appendChild(h2)
+    link.appendChild(h2)
+    
+    article.appendChild(link)
 
-  
 
     // DOM Elements
+
+    // const link = document.createElement('a')
+    // link.setAttribute('href', photographer.html?id=${id})
+    
+    // const article = document.createElement('article')
+    // link.appendChild(article)
 
     // const focusPhotographer = document.querySelectorAll(`${img} , ${h2}`)
 
@@ -57,5 +67,6 @@ function photographerFactory(dataPhotographers) {
 
     return article
   }
+  // debugger
   return { name, picture, createAllphotographersDOM }
 }
