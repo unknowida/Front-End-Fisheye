@@ -54,10 +54,10 @@ async function loadAndDisplayPhotographers() {
   )
   // Création d'une boucle "for(const...of...){} qui va lire et associer dans l'ordre la variable "photograph" pour chaque accolade (ou tableau objet) du fichier JSON du la clé ["photographers"]
   for (const photograph of photographers) {
-    
     const response = photographerFactory(photograph)
-    photographerSectionElement.appendChild(response.createAllphotographersDOM())
-  
+    photographerSectionElement.appendChild(
+      response.createphotographersCardDOM(),
+    )
   }
 }
 

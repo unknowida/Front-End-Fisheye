@@ -36,6 +36,11 @@ async function getPhotographers() {
 }
 
 async function loadAndDisplayMedia() {
+  // Reccupération dans l'url , de l'id du photographe.
+debugger
+  const searchParams = new URLSearchParams(location.href)
+  const photographerId = searchParams.get('photographerId')
+
   // Récupère les datas des photographes
   const medias = await getPhotographers()
 
@@ -44,7 +49,7 @@ async function loadAndDisplayMedia() {
   // Création d'une boucle "for(const...of...){} qui va lire et associer dans l'ordre la variable "photograph" pour chaque accolade (ou tableau objet) du fichier JSON du la clé ["photographers"]
   for (const media of medias) {
     const response = mediaFactory(media)
-    mediaSectionElement.appendChild(response.createAllphotographersDOM())
+    mediaSectionElement.appendChild(response.createphotographersCardDOM())
     // debugger
   }
 }

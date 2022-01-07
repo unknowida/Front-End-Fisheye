@@ -1,20 +1,26 @@
 function photographerFactory(dataPhotographers) {
   // Notion destructuring est une expression JavaScript qui permet d'extraire (unpack) des données d'un tableau ou d'un objet grâce à une syntaxe dont la forme ressemble à la structure du tableau ou de l'objet.
-  const { name, id, city, country, tagline, price, portrait } = dataPhotographers
+  const {
+    name,
+    id,
+    city,
+    country,
+    tagline,
+    price,
+    portrait,
+  } = dataPhotographers
   // cons
 
   const picture = `assets/photographers/${portrait}`
   // const pictures = `assets/images/${image}`
 
-  //La function "createAllphotographersDOM" permettra d'éditer le DOM sans toucher au fichier HTML dans ce cas.
-  function createAllphotographersDOM() {
+  //La function "createphotographersCardDOM" permettra d'éditer le DOM sans toucher au fichier HTML dans ce cas.
+  function createphotographersCardDOM() {
     const article = document.createElement('article')
 
-    // const searchParams = new URLSearchParams(location.href)
-    // searchParams.get('photographerId')
-
+   
     const link = document.createElement('a')
-    link.setAttribute('href','photographer.html')
+    link.setAttribute('href', `photographer.html?photographerId=${id}`)
 
     const img = document.createElement('img')
     img.setAttribute('src', picture)
@@ -23,15 +29,14 @@ function photographerFactory(dataPhotographers) {
     const h2 = document.createElement('h2')
     h2.textContent = name
     link.appendChild(h2)
-    
-    article.appendChild(link)
 
+    article.appendChild(link)
 
     // DOM Elements
 
     // const link = document.createElement('a')
     // link.setAttribute('href', photographer.html?id=${id})
-    
+
     // const article = document.createElement('article')
     // link.appendChild(article)
 
@@ -68,5 +73,5 @@ function photographerFactory(dataPhotographers) {
     return article
   }
   // debugger
-  return { name, picture, createAllphotographersDOM }
+  return { name, picture, createphotographersCardDOM }
 }

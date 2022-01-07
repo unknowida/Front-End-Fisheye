@@ -69,5 +69,5 @@ function mediaFactory(dataMedia) {
 
     return article
   }
-  return { name, pictures, createCardByPhotographerDOM }
+  return { name, createCardByPhotographerDOM }
 }
