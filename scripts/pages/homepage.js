@@ -56,7 +56,7 @@ async function loadAndDisplayPhotographers() {
   for (const photograph of photographers) {
     const response = photographerFactory(photograph)
     photographerSectionElement.appendChild(
-      response.createphotographersCardDOM(),
+      response.createPhotographersCardDOM(),
     )
   }
 }

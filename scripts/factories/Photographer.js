@@ -14,11 +14,10 @@ function photographerFactory(dataPhotographers) {
   const picture = `assets/photographers/${portrait}`
   // const pictures = `assets/images/${image}`
 
-  //La function "createphotographersCardDOM" permettra d'éditer le DOM sans toucher au fichier HTML dans ce cas.
-  function createphotographersCardDOM() {
+  //La function "createPhotographersCardDOM" permettra d'éditer le DOM sans toucher au fichier HTML dans ce cas.
+  function createPhotographersCardDOM() {
     const article = document.createElement('article')
 
-   
     const link = document.createElement('a')
     link.setAttribute('href', `photographer.html?photographerId=${id}`)
 
@@ -73,5 +72,5 @@ function photographerFactory(dataPhotographers) {
     return article
   }
   // debugger
-  return { name, picture, createphotographersCardDOM }
+  return { name, picture, createPhotographersCardDOM }
 }
