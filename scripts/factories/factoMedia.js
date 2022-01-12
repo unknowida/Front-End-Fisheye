@@ -19,21 +19,23 @@ function mediaFactory(dataMedia) {
   function createCardByPhotographerDOM() {
     const article = document.createElement('article')
 
-    const searchParams = new URLSearchParams(location.search)
-    searchParams.get('photographerId')
+    const h2 = document.createElement('h2')
+      h2.textContent = title
+      article.appendChild(h2)
+
+    // const searchParams = new URLSearchParams(location.search)
+    // searchParams.get('photographerId')
 
 
-    const link = document.createElement('a')
-    link.setAttribute('href', linkPhotographer)
-    link.appendChild(article)
+    // const link = document.createElement('a')
+    // link.setAttribute('href', linkPhotographer)
+    // link.appendChild(article)
 
     // const img = document.createElement('img')
     // img.setAttribute('src', pictures)
     // article.appendChild(img)
 
-    //   const h2 = document.createElement('h2')
-    //   h2.textContent = name
-    //   article.appendChild(h2)
+    //  
 
     // DOM Elements
 
