@@ -62,7 +62,6 @@ async function loadAndDisplayMedia() {
   // Reccupération dans l'url , de l'id du photographe.
 
   // Depuis la page photographer.html , je reccupere l'id du du photographe "photographId" depuis l'URL (location.seearch) ex:"?photographerId=243"
-  debugger
   //? pourquoi mettre new pour cette variable?
   const searchParams = new URLSearchParams(location.search)
   // le parseInt permettra de convertir et spécifier que 'photographerId' sera un nombre

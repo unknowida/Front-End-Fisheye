@@ -49,17 +49,22 @@ async function loadAndDisplayPhotographers() {
   const photographers = await getPhotographers()
 
   // displayData(photographers);
-  const photographerSectionElement = document.querySelector(
+  const photographerSectionElementHomepage = document.querySelector(
     '.photographer_section',
   )
+
+  const photographerHeaderElementPhotographer = document.querySelector(
+    'photographer_header',
+  )
+
   // Création d'une boucle "for(const...of...){} qui va lire et associer dans l'ordre la variable "photograph" pour chaque accolade (ou tableau objet) du fichier JSON du la clé ["photographers"]
   for (const photograph of photographers) {
     const response = photographerFactory(photograph)
-    photographerSectionElement.appendChild(
+
+    photographerSectionElementHomepage.appendChild(
       response.createPhotographersCardDOM(),
     )
   }
 }
-
 // Page d'acceuil vide aprèes chargement HTML/CSS , ensuite on fait loadAndDisplayPhotographers() pour amorcer toutes les étapes contenues dans la (function loadAndDisplayPhotographers())
 loadAndDisplayPhotographers()

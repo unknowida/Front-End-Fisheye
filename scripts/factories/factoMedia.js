@@ -13,19 +13,22 @@ function mediaFactory(dataMedia) {
   // cons
 
   const linkPhotographer = `assets/images/${image}`
- 
 
   //La function "createCardByPhotographerDOM" permettra d'éditer le DOM sans toucher au fichier HTML dans ce cas.
   function createCardByPhotographerDOM() {
+
+    
+
+
+
     const article = document.createElement('article')
 
     const h2 = document.createElement('h2')
-      h2.textContent = title
-      article.appendChild(h2)
+    h2.textContent = title
+    article.appendChild(h2)
 
     // const searchParams = new URLSearchParams(location.search)
     // searchParams.get('photographerId')
-
 
     // const link = document.createElement('a')
     // link.setAttribute('href', linkPhotographer)
@@ -35,7 +38,7 @@ function mediaFactory(dataMedia) {
     // img.setAttribute('src', pictures)
     // article.appendChild(img)
 
-    //  
+    //
 
     // DOM Elements
 
@@ -71,5 +74,5 @@ function mediaFactory(dataMedia) {
 
     return article
   }
-  return { name, createCardByPhotographerDOM }
+  return { title, createCardByPhotographerDOM }
 }
