@@ -19,6 +19,7 @@ function photographerFactory(dataPhotographers) {
     const article = document.createElement('article')
 
     const link = document.createElement('a')
+    link.className = 'linkNamePicture'
     link.setAttribute('href', `photographer.html?photographerId=${id}`)
 
     const img = document.createElement('img')
@@ -30,29 +31,6 @@ function photographerFactory(dataPhotographers) {
     link.appendChild(h2)
 
     article.appendChild(link)
-
-    // DOM Elements
-
-    // const link = document.createElement('a')
-    // link.setAttribute('href', photographer.html?id=${id})
-
-    // const article = document.createElement('article')
-    // link.appendChild(article)
-
-    // const focusPhotographer = document.querySelectorAll(`${img} , ${h2}`)
-
-    // sensé permettre d'ecouter une zone cliquable.
-    // focusPhotographer.forEach((btn) => btn.addEventListener('click'))
-    // location.href
-
-    // const a = document.createElement('a');
-    // const linkPictureAndText = document.createTextNode("my title text");
-    // a.appendChild(a);
-    // a.textContent = `${name}, ${picture}`
-
-    // a.title = "my title text";
-    // a.href = "http://example.com";
-    // document.`${h2}+ ${img}`.appendChild(a);
 
     const spanLocalisation = document.createElement('span')
     spanLocalisation.className = 'localisations'
@@ -84,23 +62,15 @@ function photographerDetailsFactory(dataPhotographers) {
   // const pictures = `assets/images/${image}`
 
   //La function "createPhotographersCardDOM" permettra d'éditer le DOM sans toucher au fichier HTML dans ce cas.
-  function createPhotographersCardDOM() {
-    const article = document.createElement('article')
+  function createPhotographersDetailsDOM() {
 
-    const link = document.createElement('a')
-    link.setAttribute('href', `photographer.html?photographerId=${id}`)
+    const divPhotograph = document.querySelector('.photograph-header') 
 
-    const img = document.createElement('img')
-    img.setAttribute('src', picture)
-    link.appendChild(img)
+    const title = document.createElement('h2')
+    title.textContent = name
 
-    const h1 = document.createElement('h1')
-    h1.textContent = name
-    link.appendChild(h1)
+    divPhotograph.appendChild(title)
 
-    article.appendChild(link)
-
-    // DOM Elements
 
     // const link = document.createElement('a')
     // link.setAttribute('href', photographer.html?id=${id})
@@ -123,18 +93,18 @@ function photographerDetailsFactory(dataPhotographers) {
     // a.href = "http://example.com";
     // document.`${h2}+ ${img}`.appendChild(a);
 
-    const spanLocalisation = document.createElement('span')
-    spanLocalisation.className = 'localisations'
-    spanLocalisation.textContent = `${city}, ${country}`
-    article.appendChild(spanLocalisation)
+    // const spanLocalisation = document.createElement('span')
+    // spanLocalisation.className = 'localisations'
+    // spanLocalisation.textContent = `${city}, ${country}`
+    // article.appendChild(spanLocalisation)
 
-    const spanResume = document.createElement('span')
-    spanResume.className = 'taglineResume'
-    spanResume.textContent = tagline
-    article.appendChild(spanResume)
+    // const spanResume = document.createElement('span')
+    // spanResume.className = 'taglineResume'
+    // spanResume.textContent = tagline
+    // article.appendChild(spanResume)
 
-    return article
+    return [div,title]
   }
   // debugger
-  return { name, picture, createPhotographersCardDOM }
+  return { name, picture, createPhotographersDetailsDOM }
 }
