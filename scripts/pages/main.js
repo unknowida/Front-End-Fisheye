@@ -65,7 +65,7 @@ async function loadAndDisplayPhotographers() {
     )
   }
 
-  for (const photographHeader of photographersHeader) {
+  for (const photographHeader of photographers) {
     const responsePhotographer = photographerDetailsFactory(photographHeader)
     photographerHeaderElementPhotographer.appendChild(
       responsePhotographer.createPhotographersCardDOM(),

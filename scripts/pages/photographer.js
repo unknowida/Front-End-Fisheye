@@ -72,6 +72,16 @@ async function loadAndDisplayMedia() {
   // ?Comment s'appelle la technique de const [] ci-sessous
   const [photographer, medias] = await getPhotographerAndMedia(photographerId)
 
+  const photographerHeaderElementPhotographer = document.querySelector(
+    '.photograph-header',
+  )
+
+  debugger
+  const responsePhotographer = photographerDetailsFactory(photographer)
+  photographerHeaderElementPhotographer.appendChild(
+    responsePhotographer.createPhotographersDetailsDOM(),
+  )
+
   // displayData(photographers);
   const mediaSectionElement = document.querySelector('#main')
   // Création d'une boucle "for(const...of...){} qui va lire et associer dans l'ordre la variable "photograph" pour chaque accolade (ou tableau objet) du fichier JSON du la clé ["photographers"]
@@ -84,3 +94,6 @@ async function loadAndDisplayMedia() {
 
 // Page d'acceuil vide aprèes chargement HTML/CSS , ensuite on fait loadAndDisplayPhotographers() pour amorcer toutes les étapes contenues dans la (function loadAndDisplayPhotographers())
 loadAndDisplayMedia()
+
+
+
