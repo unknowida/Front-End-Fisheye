@@ -63,10 +63,37 @@ function photographerDetailsFactory(dataPhotographers) {
 
   //La function "createPhotographersCardDOM" permettra d'éditer le DOM sans toucher au fichier HTML dans ce cas.
   function createPhotographersDetailsDOM() {
+    const headPhotographer = document.querySelector('.photograph-header')
+
     const title = document.createElement('h2')
     title.textContent = name
+    headPhotographer.appendChild(title)
 
-    return title
+    const spanLocalisation = document.createElement('span')
+    spanLocalisation.className = 'localisations'
+    spanLocalisation.textContent = `${city}, ${country}`
+    headPhotographer.appendChild(spanLocalisation)
+
+    const spanResume = document.createElement('span')
+    spanResume.className = 'taglineResume'
+    spanResume.textContent = tagline
+    headPhotographer.appendChild(spanResume)
+
+    const button = document.createElement('button')
+    button.className = 'contact_button'
+    button.onclick = 'displayModal()'
+    button.textContent = 'Contactez-moi'
+    headPhotographer.appendChild(button)
+
+    const img = document.createElement('img')
+    img.className = 'portrait'
+    img.setAttribute('src', picture)
+    headPhotographer.appendChild(img)
+
+
+
+
+    return headPhotographer
   }
   // debugger
   return { name, picture, createPhotographersDetailsDOM }

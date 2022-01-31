@@ -76,7 +76,7 @@ async function loadAndDisplayMedia() {
     '.photograph-header',
   )
 
-  debugger
+  // debugger
   const responsePhotographer = photographerDetailsFactory(photographer)
   photographerHeaderElementPhotographer.appendChild(
     responsePhotographer.createPhotographersDetailsDOM(),
