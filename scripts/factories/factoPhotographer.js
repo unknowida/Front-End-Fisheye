@@ -65,19 +65,25 @@ function photographerDetailsFactory(dataPhotographers) {
   function createPhotographersDetailsDOM() {
     const headPhotographer = document.querySelector('.photograph-header')
 
+    const resumeWrapper = document.createElement('div')
+    resumeWrapper.className = 'resume-wrapper'
+
+
     const title = document.createElement('h2')
     title.textContent = name
-    headPhotographer.appendChild(title)
+    resumeWrapper.appendChild(title)
 
     const spanLocalisation = document.createElement('span')
     spanLocalisation.className = 'localisations'
     spanLocalisation.textContent = `${city}, ${country}`
-    headPhotographer.appendChild(spanLocalisation)
+    resumeWrapper.appendChild(spanLocalisation)
 
     const spanResume = document.createElement('span')
     spanResume.className = 'taglineResume'
     spanResume.textContent = tagline
-    headPhotographer.appendChild(spanResume)
+    resumeWrapper.appendChild(spanResume)
+
+    headPhotographer.appendChild(resumeWrapper)
 
     const button = document.createElement('button')
     button.className = 'contact_button'

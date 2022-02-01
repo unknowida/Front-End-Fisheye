@@ -8,20 +8,48 @@
     
   } */
 
+body {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400 normal;
+}
+
 #contact_modal {
   display: none;
 }
 
 .photograph-header {
   background-color: #fafafa;
-  height: 300px;
+  /* height: 300px; */
   margin: 0 100px;
   justify-self: center;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  flex-wrap: wrap;
+  padding: 50px;
+  /* flex-wrap: wrap; */
+}
 
+.resume-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.resume-wrapper h2 {
+  font-size: 64px;
+}
+
+.resume-wrapper .localisations {
+  display: flex;
+  margin-top: 16px;
+  font-size: 24px;
+}
+
+.resume-wrapper .taglineResume {
+  display: flex;
+  height: 23px;
+  margin-top: 18px;
+  font-size: 18px ;
+  line-height: 23px;
 }
 
 .contact_button {
