@@ -63,6 +63,7 @@ function photographerDetailsFactory(dataPhotographers) {
 
   //La function "createPhotographersCardDOM" permettra d'éditer le DOM sans toucher au fichier HTML dans ce cas.
   function createPhotographersDetailsDOM() {
+    
     const headPhotographer = document.querySelector('.photograph-header')
 
     const resumeWrapper = document.createElement('div')
@@ -95,9 +96,6 @@ function photographerDetailsFactory(dataPhotographers) {
     img.className = 'portrait'
     img.setAttribute('src', picture)
     headPhotographer.appendChild(img)
-
-
-
 
     return headPhotographer
   }

@@ -18,13 +18,13 @@ body {
 }
 
 .photograph-header {
-  background-color: #fafafa;
-  /* height: 300px; */
-  margin: 0 100px;
-  justify-self: center;
   display: flex;
-  justify-content: flex-start;
+  justify-self: center;
   align-items: center;
+  justify-content: space-between;
+  background-color: #fafafa;
+  /* margin: 0 100px; */
+
   padding: 50px;
   /* flex-wrap: wrap; */
 }
@@ -40,7 +40,7 @@ body {
 
 .resume-wrapper .localisations {
   display: flex;
-  margin-top: 16px;
+  line-height: 31px;
   font-size: 24px;
 }
 
@@ -48,16 +48,21 @@ body {
   display: flex;
   height: 23px;
   margin-top: 18px;
-  font-size: 18px ;
+  font-size: 18px;
   line-height: 23px;
 }
 
 .contact_button {
   display: flex;
+  justify-content: center;
+
+  align-items: center;
+  /* text-align: center; */
   font-size: 20px;
   font-weight: bold;
+  line-height: 26px;
   color: white;
-  padding: 11px;
+  /* padding: 11px; */
   width: 170px;
   height: 70px;
   border: none;
@@ -69,7 +74,6 @@ body {
 .portrait {
   height: 200px;
   width: 200px;
-  margin-top: 20px;
   object-fit: cover;
   border-radius: 50%;
 }
