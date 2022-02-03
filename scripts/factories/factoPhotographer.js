@@ -92,10 +92,17 @@ function photographerDetailsFactory(dataPhotographers) {
     button.textContent = 'Contactez-moi'
     headPhotographer.appendChild(button)
 
+    const wrapperPortrait = document.createElement('div')
+    wrapperPortrait.className = 'portrait-wrapper'
+
+
     const img = document.createElement('img')
     img.className = 'portrait'
     img.setAttribute('src', picture)
-    headPhotographer.appendChild(img)
+    wrapperPortrait.appendChild(img)
+
+    headPhotographer.appendChild(wrapperPortrait)
+
 
     return headPhotographer
   }

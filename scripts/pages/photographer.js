@@ -72,13 +72,13 @@ async function loadAndDisplayMedia() {
   // ?Comment s'appelle la technique de const [] ci-sessous
   const [photographer, medias] = await getPhotographerAndMedia(photographerId)
 
-  const photographerHeaderElementPhotographer = document.querySelector(
-    '.photograph-header',
+  const mainSectionElement = document.querySelector(
+    '#main',
   )
 
   // debugger
   const responsePhotographer = photographerDetailsFactory(photographer)
-  photographerHeaderElementPhotographer.appendChild(
+  mainSectionElement.appendChild(
     responsePhotographer.createPhotographersDetailsDOM(),
   )
 
