@@ -6,6 +6,7 @@ function mediaFactory(dataMedia) {
     title,
     tagline,
     image,
+    video,
     likes,
     date,
     price,
@@ -15,6 +16,7 @@ function mediaFactory(dataMedia) {
   // const linkPhotographer = `assets/images/${image}`
 
   const logoLikes = `assets/icons/Heart.png`
+  
 
   //La function "createCardByPhotographerDOM" permettra d'éditer le DOM sans toucher au fichier HTML dans ce cas.
   function createCardByPhotographerDOM() {
@@ -28,6 +30,11 @@ function mediaFactory(dataMedia) {
     picture.src = `assets/images/${photographerId}/${image}`
     picture.className = 'media-image'
     article.appendChild(picture)
+
+    // const movie = document.createElement('video')
+    // movie.src = `assets/images/${photographerId}/${video}`
+    // movie.className = 'media-video'
+    // article.appendChild(movie)
 
     const wrapperUnderDetails = document.createElement('div')
     wrapperUnderDetails.className = 'rating-wrapper'
