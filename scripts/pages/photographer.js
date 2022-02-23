@@ -72,10 +72,14 @@ async function loadAndDisplayMedia() {
   // ?Comment s'appelle la technique de const [] ci-sessous
   const [photographer, medias] = await getPhotographerAndMedia(photographerId)
 
+  return [photographer, medias]
+}
   
-  const mainSectionElement = document.querySelector(
-    '#main',
-  )
+  async function loadAndDisplayMedia(photographer, medias) {
+    const mainSectionElement = document.querySelector('#main')
+  }
+
+ 
 
   // debugger
   const responsePhotographer = photographerDetailsFactory(photographer)
@@ -83,20 +87,33 @@ async function loadAndDisplayMedia() {
     responsePhotographer.createPhotographersDetailsDOM(),
   )
 
-  // displayData(photographers);
-  const mediaSectionElement = document.createElement('section')
-  mediaSectionElement.className = 'media-section'
-  mainSectionElement.appendChild(mediaSectionElement)
-  // Création d'une boucle "for(const...of...){} qui va lire et associer dans l'ordre la variable "photograph" pour chaque accolade (ou tableau objet) du fichier JSON du la clé ["photographers"]
-  for (const media of medias) {
-    const response = mediaFactory(media)
-    mediaSectionElement.appendChild(response.createCardByPhotographerDOM())
-    // debugger
+  if (existingMediaSection) {
+    debugger
+  } else {
+    const mediaSectionElement = document.createElement('section')
+    mediaSectionElement.className = 'media-section'
+    mainSectionElement.appendChild(mediaSectionElement)
+    // Création d'une boucle "for(const...of...){} qui va lire et associer dans l'ordre la variable "photograph" pour chaque accolade (ou tableau objet) du fichier JSON du la clé ["photographers"]
+    for (const media of medias) {
+      const response = mediaFactory(media)
+      mediaSectionElement.appendChild(response.createCardByPhotographerDOM())
+      // debugger
+    }
   }
+
+  // displayData(photographers);
+}
+
+loadPhotographerData().then(([photographer, medias])) => {
+  document.querySelector('.sort-by-likes').addEventListener('click ', () => {
+    debugger
+    const sortedMedias = [...medias]
+    sortMedias.sort((media1, media2) => {
+      return media2.likes - media1.likes
+    })
+    loadAndDisplayMedia(photographer , sortedMedias)
+  })
 }
 
 // Page d'acceuil vide aprèes chargement HTML/CSS , ensuite on fait loadAndDisplayPhotographers() pour amorcer toutes les étapes contenues dans la (function loadAndDisplayPhotographers())
-loadAndDisplayMedia()
-
-
-
+loadAndDisplayMedia(photographer , medias)

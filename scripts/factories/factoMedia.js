@@ -22,6 +22,7 @@ function mediaFactory(dataMedia) {
   function createCardByPhotographerDOM() {
     const article = document.createElement('article')
     article.className = 'article-wrapper'
+    article.setAttribute('data-id', id)
 
     // const wrapperArticleContent = document.createElement('div')
     // wrapperArticleContent.className = 'article-wrapper'
