@@ -58,7 +58,7 @@ async function getPhotographerAndMedia(photographerId) {
   //     photographers: [...photographers, ...photographers, ...photographers]})
 }
 
-async function loadAndDisplayMedia() {
+async function loadPhotographerData() {
   // Reccupération dans l'url , de l'id du photographe.
 
   // Depuis la page photographer.html , je reccupere l'id du du photographe "photographId" depuis l'URL (location.seearch) ex:"?photographerId=243"
@@ -74,12 +74,9 @@ async function loadAndDisplayMedia() {
 
   return [photographer, medias]
 }
-  
-  async function loadAndDisplayMedia(photographer, medias) {
-    const mainSectionElement = document.querySelector('#main')
-  }
 
- 
+async function loadAndDisplayMedia(photographer, medias) {
+  const mainSectionElement = document.querySelector('#main')
 
   // debugger
   const responsePhotographer = photographerDetailsFactory(photographer)
@@ -87,8 +84,17 @@ async function loadAndDisplayMedia() {
     responsePhotographer.createPhotographersDetailsDOM(),
   )
 
+  const existingMediaSection = document.querySelector('.media-section')
+
   if (existingMediaSection) {
-    debugger
+    //changer les proprietés des order elements
+
+    let index = 0
+    for (const media of medias) {
+      const mediaElement = document.querySelector(`[data-id='${media.id}']`)
+      mediaElement.style.order = index
+      index += 1
+    }
   } else {
     const mediaSectionElement = document.createElement('section')
     mediaSectionElement.className = 'media-section'
@@ -100,20 +106,30 @@ async function loadAndDisplayMedia() {
       // debugger
     }
   }
-
-  // displayData(photographers);
 }
 
-loadPhotographerData().then(([photographer, medias])) => {
-  document.querySelector('.sort-by-likes').addEventListener('click ', () => {
-    debugger
+// displayData(photographers);
+
+// const sortByLikesOnClickCallback
+
+const registerSortByLikesClickListener = (medias) => {
+  const sortByLikesOnClickCallback = () => {
+    // debugger
     const sortedMedias = [...medias]
-    sortMedias.sort((media1, media2) => {
+    sortedMedias.sort((media1, media2) => {
       return media2.likes - media1.likes
     })
-    loadAndDisplayMedia(photographer , sortedMedias)
-  })
+    loadAndDisplayMedia(photographer, sortedMedias)
+  }
+
+  document
+    .querySelector('.sort-by-likes')
+    .addEventListener('click', sortByLikesOnClickCallback)
 }
 
-// Page d'acceuil vide aprèes chargement HTML/CSS , ensuite on fait loadAndDisplayPhotographers() pour amorcer toutes les étapes contenues dans la (function loadAndDisplayPhotographers())
-loadAndDisplayMedia(photographer , medias)
+loadPhotographerData().then(([photographer, medias]) => {
+  registerSortByLikesClickListener(photographer, medias)
+
+  // Page d'acceuil vide aprèes chargement HTML/CSS , ensuite on fait loa+dAndDisplayPhotographers() pour amorcer toutes les étapes contenues dans la (function loadAndDisplayPhotographers())
+  loadAndDisplayMedia(photographer, medias)
+})
