@@ -76,7 +76,6 @@ async function loadPhotographerData() {
 }
 
 async function reloadMedia(medias) {
-
   let index = 0
   for (const media of medias) {
     const mediaElement = document.querySelector(`[data-id='${media.id}']`)
@@ -87,29 +86,24 @@ async function reloadMedia(medias) {
 
 async function loadAndDisplayMedia(photographer, media) {
   const mainSectionElement = document.querySelector('#main')
-  
+
   const responsePhotographer = photographerDetailsFactory(photographer)
-    mainSectionElement.appendChild(
-      responsePhotographer.createPhotographersDetailsDOM(),
-    )
+  mainSectionElement.appendChild(
+    responsePhotographer.createPhotographersDetailsDOM(),
+  )
 }
 
-  const existingMediaSection = document.querySelector('.media-section')
+//changer les proprietés des order elements
 
-    //changer les proprietés des order elements
-
-    
-   else {
-    const mediaSectionElement = document.createElement('section')
-    mediaSectionElement.className = 'media-section'
-    mainSectionElement.appendChild(mediaSectionElement)
-    // Création d'une boucle "for(const...of...){} qui va lire et associer dans l'ordre la variable "photograph" pour chaque accolade (ou tableau objet) du fichier JSON du la clé ["photographers"]
-    for (const media of medias) {
-      const response = mediaFactory(media)
-      mediaSectionElement.appendChild(response.createCardByPhotographerDOM())
-      // debugger
-    }
-  }
+const mediaSectionElement = document.createElement('section')
+mediaSectionElement.className = 'media-section'
+mainSectionElement.appendChild(mediaSectionElement)
+// Création d'une boucle "for(const...of...){} qui va lire et associer dans l'ordre la variable "photograph" pour chaque accolade (ou tableau objet) du fichier JSON du la clé ["photographers"]
+for (const media of medias) {
+  const response = mediaFactory(media)
+  mediaSectionElement.appendChild(response.createCardByPhotographerDOM())
+  // debugger
+}
 }
 
 // displayData(photographers);
