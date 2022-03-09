@@ -1,12 +1,12 @@
 {
   "workbench.colorCustomizations": {
     "[Night Owl]": {
-      "activityBar.background": "#000C1D",
-      "activityBar.border": "#102a44",
+      "activityBar.background": "#3a0132",
+      "activityBar.border": "#7396b9",
       "editorGroup.border": "#d9e409",
-      "sideBar.background": "#000000",
-      "sideBar.border": "#057493",
-      "sideBar.foreground": "#8BADC1"
+      "sideBar.background": "#3a0000",
+      "sideBar.border": "#5dbcd6",
+      "sideBar.foreground": "#9abccf"
     },
     "eslint.format.enable": true,
     "vsicons.dontShowNewVersionMessage": true,
@@ -15,4 +15,3 @@
     "titleBar.activeForeground": "#EFFFEC"
   }
 }
-
