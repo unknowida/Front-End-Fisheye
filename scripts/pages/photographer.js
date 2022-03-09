@@ -75,27 +75,31 @@ async function loadPhotographerData() {
   return [photographer, medias]
 }
 
-async function loadAndDisplayMedia(photographer, medias) {
-  const mainSectionElement = document.querySelector('#main')
+async function reloadMedia(medias) {
 
-  // debugger
+  let index = 0
+  for (const media of medias) {
+    const mediaElement = document.querySelector(`[data-id='${media.id}']`)
+    mediaElement.style.order = index
+    index += 1
+  }
+}
+
+async function loadAndDisplayMedia(photographer, media) {
+  const mainSectionElement = document.querySelector('#main')
+  
   const responsePhotographer = photographerDetailsFactory(photographer)
-  mainSectionElement.appendChild(
-    responsePhotographer.createPhotographersDetailsDOM(),
-  )
+    mainSectionElement.appendChild(
+      responsePhotographer.createPhotographersDetailsDOM(),
+    )
+}
 
   const existingMediaSection = document.querySelector('.media-section')
 
-  if (existingMediaSection) {
     //changer les proprietés des order elements
 
-    let index = 0
-    for (const media of medias) {
-      const mediaElement = document.querySelector(`[data-id='${media.id}']`)
-      mediaElement.style.order = index
-      index += 1
-    }
-  } else {
+    
+   else {
     const mediaSectionElement = document.createElement('section')
     mediaSectionElement.className = 'media-section'
     mainSectionElement.appendChild(mediaSectionElement)
@@ -119,7 +123,7 @@ const registerSortByLikesClickListener = (medias) => {
     sortedMedias.sort((media1, media2) => {
       return media2.likes - media1.likes
     })
-    loadAndDisplayMedia(photographer, sortedMedias)
+    reloadMedia(sortedMedias)
   }
 
   document
@@ -127,8 +131,22 @@ const registerSortByLikesClickListener = (medias) => {
     .addEventListener('click', sortByLikesOnClickCallback)
 }
 
+const registerSortByDateListener = (medias) => {
+  const sortByDateOnClickCallback = () => {
+    const sortedMedias = [...medias]
+    sortedMedias.sort((media1, media2) => {
+      return new Date(media2.date) < new Date(media1.date)
+    })
+    reloadMedia(sortedMedias)
+  }
+
+  document
+    .querySelector('.sort-by-date')
+    .addEventListener('click', sortByDateOnClickCallback)
+}
+
 loadPhotographerData().then(([photographer, medias]) => {
-  registerSortByLikesClickListener(photographer, medias)
+  registerSortByLikesClickListener(medias)
 
   // Page d'acceuil vide aprèes chargement HTML/CSS , ensuite on fait loa+dAndDisplayPhotographers() pour amorcer toutes les étapes contenues dans la (function loadAndDisplayPhotographers())
   loadAndDisplayMedia(photographer, medias)
