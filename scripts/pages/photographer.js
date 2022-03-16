@@ -87,10 +87,15 @@ async function reloadMedia(medias) {
 async function loadAndDisplayMedia(photographer, medias) {
   const mainSectionElement = document.querySelector("#main");
 
+  
+
   const responsePhotographer = photographerDetailsFactory(photographer);
   mainSectionElement.appendChild(
     responsePhotographer.createPhotographersDetailsDOM()
   );
+  const sortingSection = document.createElement("section");
+  sortingSection.className = "sorting";
+  mainSectionElement.appendChild(sortingSection);
 
   //changer les proprietés des order elements
 
@@ -103,6 +108,7 @@ async function loadAndDisplayMedia(photographer, medias) {
     mediaSectionElement.appendChild(response.createCardByPhotographerDOM());
     // debugger
   }
+  
 }
 
 // displayData(photographers);
@@ -122,6 +128,7 @@ const registerSortByLikesClickListener = (medias) => {
   document
     .querySelector(".sort-by-likes")
     .addEventListener("click", sortByLikesOnClickCallback);
+  
 };
 
 const registerSortByDateListener = (medias) => {
