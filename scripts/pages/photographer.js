@@ -85,23 +85,18 @@ async function reloadMedia(medias) {
 }
 
 async function loadAndDisplayMedia(photographer, medias) {
-  const mainSectionElement = document.querySelector("#main");
-
-  
+  const photographerSectionElement = document.querySelector(".photographer-section");
 
   const responsePhotographer = photographerDetailsFactory(photographer);
-  mainSectionElement.appendChild(
+  photographerSectionElement.appendChild(
     responsePhotographer.createPhotographersDetailsDOM()
   );
   const sortingSection = document.createElement("section");
   sortingSection.className = "sorting";
-  mainSectionElement.appendChild(sortingSection);
+  photographerSectionElement.appendChild(sortingSection);
 
   //changer les proprietés des order elements
-
-  const mediaSectionElement = document.createElement("section");
-  mediaSectionElement.className = "media-section";
-  mainSectionElement.appendChild(mediaSectionElement);
+  const mediaSectionElement = document.querySelector(".media-section");
   // Création d'une boucle "for(const...of...){} qui va lire et associer dans l'ordre la variable "photograph" pour chaque accolade (ou tableau objet) du fichier JSON du la clé ["photographers"]
   for (const media of medias) {
     const response = mediaFactory(media);

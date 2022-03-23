@@ -120,6 +120,7 @@ h2 {
   /* ajout-modif */
   object-fit: cover;
   border-radius: 50%;
+  box-shadow: rgb(250 251 255) -10px -10px 20px, rgb(166 171 189) 10px 10px 20px;
 }
 
 /* @media */

@@ -27,6 +27,7 @@ function photographerFactory(dataPhotographers) {
     link.appendChild(img)
 
     const h2 = document.createElement('h2')
+    
     h2.textContent = name
     link.appendChild(h2)
 
@@ -89,7 +90,7 @@ function photographerDetailsFactory(dataPhotographers) {
     headWrapper.appendChild(resumeWrapper)
 
     const button = document.createElement('button')
-    button.className = 'contact_button'
+    button.className = 'main-button'
     button.onclick = 'displayModal()'
     button.textContent = 'Contactez-moi'
     headWrapper.appendChild(button)
