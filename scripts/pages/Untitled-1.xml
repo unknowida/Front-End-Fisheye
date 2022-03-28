@@ -10,3 +10,9 @@ TRI
 2. Quand on choisit un nouveau tri, l'appel est capté par l'event listener sur le onclick du bouton tri
 3. En fonction du tri, on va créer un nouveau tableau à partir du json , mais trié convenablemenbt
 4. Passzer ce nouveau tableau à la fonction qui affiche les élements (loadAndDisplayMedia)
+
+
+
+### Explication de la page photographer.html code et du fichier photographer.js ###
+
+
