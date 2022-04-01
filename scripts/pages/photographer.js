@@ -143,9 +143,23 @@ const registerSortByTitleListener = (medias) => {
     reloadMedia(sortedMedias)
   }
 
+const selectTitleSortOnClickCallback = () => {
+  document.querySelector('.sort-by-likes').classList.add('invisible')
+  document.querySelector('.sort-by-date').classList.add('invisible')
+}
+
   document
     .querySelector('.sort-by-title')
     .addEventListener('click', sortByTitleOnClickCallback)
+
+  document
+    .querySelector('.sort-by-title')
+    .addEventListener('click', selectTitleSortOnClickCallback)
+
+  document
+    .querySelector('.sort-list-wrapper')
+    .classList.add('collapsed')
+    .classList.add('uncollapsed')
 }
 
 async function reloadMedia(medias) {
