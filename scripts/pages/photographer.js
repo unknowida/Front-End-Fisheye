@@ -159,7 +159,7 @@ const selectTitleSortOnClickCallback = () => {
   document
     .querySelector('.sort-list-wrapper')
     .classList.add('collapsed')
-    .classList.add('uncollapsed')
+    // .classList.add('uncollapsed')
 }
 
 async function reloadMedia(medias) {
