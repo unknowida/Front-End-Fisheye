@@ -147,6 +147,9 @@ const selectTitleSortOnClickCallback = () => {
   document.querySelector('.sort-by-likes').classList.add('invisible')
   document.querySelector('.sort-by-date').classList.add('invisible')
 }
+  
+  
+  
 
   document
     .querySelector('.sort-by-title')
