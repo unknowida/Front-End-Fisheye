@@ -88,42 +88,68 @@ const registerAllSortingButtons = (medias) => {
   registerSortByLikesClickListener(medias)
   registerSortByDateListener(medias)
   registerSortByTitleListener(medias)
+
+  const btnArrow = document.querySelector('.vector')
+  btnArrow.addEventListener('click', () => {
+    const sortOptions = document.querySelectorAll('li.sort-by-title, li.sort-by-date, li.sort-by-likes')
+    for (const sortOption of sortOptions) {
+      sortOption.classList.add('visible')
+      sortOption.classList.remove('invisible')
+    }
+  })
 }
 
 const registerSortByLikesClickListener = (medias) => {
   const sortByLikesOnClickCallback = () => {
-    // debugger
-    const sortedMedias = [...medias]
-    sortedMedias.sort((media1, media2) => {
-      return media2.likes - media1.likes
-    })
-    reloadMedia(sortedMedias)
+      // on trie les medias par popularité décroissante et on met à jour les medias
+      const sortedMedias = [...medias]
+      sortedMedias.sort((media1, media2) => {
+        return media2.likes - media1.likes
+      })
+      reloadMedia(sortedMedias)
+
+      const sortOptions = document.querySelectorAll('li.sort-by-title, li.sort-by-date')
+
+      for (const sortOption of sortOptions) {
+        sortOption.classList.remove('visible')
+        sortOption.classList.add('invisible')
+      }
   }
 
   document
-    .querySelector('.sort-by-likes')
+    .querySelector('li.sort-by-likes')
     .addEventListener('click', sortByLikesOnClickCallback)
 }
 
 const registerSortByDateListener = (medias) => {
+
   const sortByDateOnClickCallback = () => {
-    const sortedMedias = [...medias]
-    sortedMedias.sort((media1, media2) => {
-      const date1 = new Date(media1.date)
-      const date2 = new Date(media2.date)
+      // on trie les medias par popularité décroissante et on met à jour les medias
+      const sortedMedias = [...medias]
+      sortedMedias.sort((media1, media2) => {
+        const date1 = new Date(media1.date)
+        const date2 = new Date(media2.date)
 
-      return date2.getTime() - date1.getTime
-    })
-    reloadMedia(sortedMedias)
-  }
+        return date2.getTime() - date1.getTime()
+      })
+      reloadMedia(sortedMedias)
 
-  document
-    .querySelector('.sort-by-date')
+      const sortOptions = document.querySelectorAll('li.sort-by-title, li.sort-by-likes')
+
+      for (const sortOption of sortOptions) {
+        sortOption.classList.remove('visible')
+        sortOption.classList.add('invisible')
+      } 
+    }
+
+    document
+    .querySelector('li.sort-by-date')
     .addEventListener('click', sortByDateOnClickCallback)
 }
 
 const registerSortByTitleListener = (medias) => {
-  const sortByTitleOnClickCallback = () => {
+  const sortByDateOnClickCallback = () => {
+    // on trie les medias par popularité décroissante et on met à jour les medias
     const sortedMedias = [...medias]
     sortedMedias.sort((media1, media2) => {
       const title1 = media1.title
@@ -141,28 +167,18 @@ const registerSortByTitleListener = (medias) => {
       return title1.localeCompare(title2)
     })
     reloadMedia(sortedMedias)
+
+    const sortOptions = document.querySelectorAll('li.sort-by-date, li.sort-by-likes')
+
+    for (const sortOption of sortOptions) {
+      sortOption.classList.remove('visible')
+      sortOption.classList.add('invisible')
+    } 
   }
 
-const selectTitleSortOnClickCallback = () => {
-  document.querySelector('.sort-by-likes').classList.add('invisible')
-  document.querySelector('.sort-by-date').classList.add('invisible')
-}
-  
-  
-  
-
   document
-    .querySelector('.sort-by-title')
-    .addEventListener('click', sortByTitleOnClickCallback)
-
-  document
-    .querySelector('.sort-by-title')
-    .addEventListener('click', selectTitleSortOnClickCallback)
-
-  document
-    .querySelector('.sort-list-wrapper')
-    .classList.add('collapsed')
-    // .classList.add('uncollapsed')
+  .querySelector('li.sort-by-title')
+  .addEventListener('click', sortByDateOnClickCallback)
 }
 
 async function reloadMedia(medias) {
