@@ -209,22 +209,12 @@ async function loadAndDisplayMedia(photographer, medias) {
   for (const media of medias) {
     const response = mediaFactory(media)
     mediaSectionElement.appendChild(response.createCardByPhotographerDOM())
-    // debugger
-    document.querySelector(`[data-id='${media.id}']`).addEventListener('click', () => {
-      const mediaElement = document.querySelector(`[data-id='${media.id}']`)
-      mediaElement.classList.add('selected')
-      const mediaDetails = mediaDetailsFactory(media)
-      mediaSectionElement.appendChild(mediaDetails.createMediaDetailsDOM())
-      const closeButton = document.createElement('button')
-      closeButton.className = 'close-button'
-      closeButton.innerText = 'X'
-      mediaSectionElement.appendChild(closeButton)
-      closeButton.addEventListener('click', () => {
-        mediaElement.classList.remove('selected')
-        mediaSectionElement.removeChild(mediaDetails.createMediaDetailsDOM())
-        mediaSectionElement.removeChild(closeButton)
-
-      })
+    
+    document.querySelector(`[data-id="${media.id}"]`)
+      .addEventListener('click', () => {
+        document.querySelector(`#zoom_media`).classList.remove("invisible")
+        document.querySelector (`#zoom_media .zoom_image`) .setAttribute("src", `assets/images/${media.photographerId}/${media.image}`)
+    })
   }
 }
 
