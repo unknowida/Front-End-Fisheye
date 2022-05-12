@@ -16,7 +16,6 @@ function mediaFactory(dataMedia) {
   // const linkPhotographer = `assets/images/${image}`
 
   const logoLikes = `assets/icons/Heart.png`
-  
 
   //La function "createCardByPhotographerDOM" permettra d'éditer le DOM sans toucher au fichier HTML dans ce cas.
   function createCardByPhotographerDOM() {
@@ -50,7 +49,7 @@ function mediaFactory(dataMedia) {
     like.textContent = likes
     like.className = 'likes-rating'
     wrapperUnderDetails.appendChild(like, logoLikes)
-    
+
     const heart = document.createElement('img')
     heart.className = 'logo-heart'
     heart.setAttribute('src', logoLikes)
@@ -103,5 +102,38 @@ function mediaFactory(dataMedia) {
 
     return article
   }
+
+  function createCardByPhotographerDOM() {
+    const article = document.createElement('article')
+    article.className = 'article-wrapper'
+    article.setAttribute('data-id', id)
+
+    const picture = document.createElement('img')
+    picture.src = `assets/images/${photographerId}/${image}`
+    picture.className = 'media-image'
+    article.appendChild(picture)
+
+    const wrapperUnderDetails = document.createElement('div')
+    wrapperUnderDetails.className = 'rating-wrapper'
+    article.appendChild(wrapperUnderDetails)
+
+    const namePicture = document.createElement('span')
+    namePicture.textContent = title
+    namePicture.className = 'title-picture'
+    wrapperUnderDetails.appendChild(namePicture)
+
+    const like = document.createElement('span')
+    like.textContent = likes
+    like.className = 'likes-rating'
+    wrapperUnderDetails.appendChild(like, logoLikes)
+
+    const heart = document.createElement('img')
+    heart.className = 'logo-heart'
+    heart.setAttribute('src', logoLikes)
+    wrapperUnderDetails.appendChild(heart)
+
+    return article
+  }
+
   return { title, createCardByPhotographerDOM }
 }

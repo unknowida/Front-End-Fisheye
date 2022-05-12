@@ -30,10 +30,16 @@
             <li class="sort-by-likes">
               <button class="main-button">Popularité</button>
             </li>
-            <li class="invisible sort-by-date"><button class="main-button">Date</button></li>
-            <li class="invisible sort-by-title"><button class="main-button">Titre</button></li>
+            <li class="invisible sort-by-date">
+              <button class="main-button">Date</button>
+            </li>
+            <li class="invisible sort-by-title">
+              <button class="main-button">Titre</button>
+            </li>
           </ul>
-          <div class="vector"><img src="/assets/icons/Vector.png" alt="uncollapse sort options"/></div>
+          <div class="vector">
+            <img src="/assets/icons/Vector.png" alt="uncollapse sort options" />
+          </div>
         </div>
       </div>
 
@@ -45,6 +51,14 @@
         </button>
       </div>
     </main>
+    <div id="zoom_media" class="invisible">
+      <div class="zoom_media">
+        <img src="assets/icons/close.svg" onclick="closeZoomMedia()" />
+        <button class="arrow_left"><</button>
+        <img class="zoom_image"/>
+        <button class="arrow_right">></button>
+      </div>
+    </div>
     <div id="contact_modal">
       <div class="modal">
         <header>
