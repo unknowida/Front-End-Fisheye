@@ -82,8 +82,6 @@ async function getPhotographerAndMedia(photographerId) {
   //     photographers: [...photographers, ...photographers, ...photographers]})
 }
 
-
-
 const registerAllSortingButtons = (medias) => {
   registerSortByLikesClickListener(medias)
   registerSortByDateListener(medias)
@@ -91,7 +89,9 @@ const registerAllSortingButtons = (medias) => {
 
   const btnArrow = document.querySelector('.vector')
   btnArrow.addEventListener('click', () => {
-    const sortOptions = document.querySelectorAll('li.sort-by-title, li.sort-by-date, li.sort-by-likes')
+    const sortOptions = document.querySelectorAll(
+      'li.sort-by-title, li.sort-by-date, li.sort-by-likes',
+    )
     for (const sortOption of sortOptions) {
       sortOption.classList.add('visible')
       sortOption.classList.remove('invisible')
@@ -101,19 +101,21 @@ const registerAllSortingButtons = (medias) => {
 
 const registerSortByLikesClickListener = (medias) => {
   const sortByLikesOnClickCallback = () => {
-      // on trie les medias par popularité décroissante et on met à jour les medias
-      const sortedMedias = [...medias]
-      sortedMedias.sort((media1, media2) => {
-        return media2.likes - media1.likes
-      })
-      reloadMedia(sortedMedias)
+    // on trie les medias par popularité décroissante et on met à jour les medias
+    const sortedMedias = [...medias]
+    sortedMedias.sort((media1, media2) => {
+      return media2.likes - media1.likes
+    })
+    reloadMedia(sortedMedias)
 
-      const sortOptions = document.querySelectorAll('li.sort-by-title, li.sort-by-date')
+    const sortOptions = document.querySelectorAll(
+      'li.sort-by-title, li.sort-by-date',
+    )
 
-      for (const sortOption of sortOptions) {
-        sortOption.classList.remove('visible')
-        sortOption.classList.add('invisible')
-      }
+    for (const sortOption of sortOptions) {
+      sortOption.classList.remove('visible')
+      sortOption.classList.add('invisible')
+    }
   }
 
   document
@@ -122,27 +124,28 @@ const registerSortByLikesClickListener = (medias) => {
 }
 
 const registerSortByDateListener = (medias) => {
-
   const sortByDateOnClickCallback = () => {
-      // on trie les medias par popularité décroissante et on met à jour les medias
-      const sortedMedias = [...medias]
-      sortedMedias.sort((media1, media2) => {
-        const date1 = new Date(media1.date)
-        const date2 = new Date(media2.date)
+    // on trie les medias par popularité décroissante et on met à jour les medias
+    const sortedMedias = [...medias]
+    sortedMedias.sort((media1, media2) => {
+      const date1 = new Date(media1.date)
+      const date2 = new Date(media2.date)
 
-        return date2.getTime() - date1.getTime()
-      })
-      reloadMedia(sortedMedias)
+      return date2.getTime() - date1.getTime()
+    })
+    reloadMedia(sortedMedias)
 
-      const sortOptions = document.querySelectorAll('li.sort-by-title, li.sort-by-likes')
+    const sortOptions = document.querySelectorAll(
+      'li.sort-by-title, li.sort-by-likes',
+    )
 
-      for (const sortOption of sortOptions) {
-        sortOption.classList.remove('visible')
-        sortOption.classList.add('invisible')
-      } 
+    for (const sortOption of sortOptions) {
+      sortOption.classList.remove('visible')
+      sortOption.classList.add('invisible')
     }
+  }
 
-    document
+  document
     .querySelector('li.sort-by-date')
     .addEventListener('click', sortByDateOnClickCallback)
 }
@@ -168,17 +171,19 @@ const registerSortByTitleListener = (medias) => {
     })
     reloadMedia(sortedMedias)
 
-    const sortOptions = document.querySelectorAll('li.sort-by-date, li.sort-by-likes')
+    const sortOptions = document.querySelectorAll(
+      'li.sort-by-date, li.sort-by-likes',
+    )
 
     for (const sortOption of sortOptions) {
       sortOption.classList.remove('visible')
       sortOption.classList.add('invisible')
-    } 
+    }
   }
 
   document
-  .querySelector('li.sort-by-title')
-  .addEventListener('click', sortByDateOnClickCallback)
+    .querySelector('li.sort-by-title')
+    .addEventListener('click', sortByDateOnClickCallback)
 }
 
 async function reloadMedia(medias) {
@@ -209,15 +214,26 @@ async function loadAndDisplayMedia(photographer, medias) {
   for (const media of medias) {
     const response = mediaFactory(media)
     mediaSectionElement.appendChild(response.createCardByPhotographerDOM())
-    
-    document.querySelector(`[data-id="${media.id}"]`)
-      .addEventListener('click', () => {
-        document.querySelector(`#zoom_media`).classList.remove("invisible")
-        document.querySelector (`#zoom_media .zoom_image`) .setAttribute("src", `assets/images/${media.photographerId}/${media.image}`)
-    })
-  }
-}
 
+    document
+      .querySelector(`[data-id="${media.id}"]`)
+      .addEventListener('click', () => {
+        document.querySelector(`#zoom_media`).classList.remove('invisible')
+        document
+          .querySelector(`#zoom_media .zoom_image`)
+          .setAttribute(
+            'src',
+            `assets/images/${media.photographerId}/${media.image}`,
+          )
+      })
+  }
+
+  document
+    .querySelector(`#zoom_media .item_close`)
+    .addEventListener('click', () => {
+      document.querySelector(`#zoom_media`).classList.add('invisible')
+    })
+}
 
 // displayData(photographers);
 

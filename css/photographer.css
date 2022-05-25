@@ -16,17 +16,28 @@
   width: 100%;
   height: 100%;
   background-color: #ffffff;
+  
 }
 .zoom_media {
   display: flex;
   justify-content: center;
-  Width: 1050px;
-  height: 900px;
+  /* width: 1050px;
+  height: 900px; */
+  margin: 62px auto;
 }
 
 .zoom_image {
   border-radius: 5px;
   color: #c4c4c4;
+  width: 1050px;
+  height: 900px;
+}
+
+.surface_left,
+.surface_right {
+  background: none;
+  border: none;
+  padding: 0px;
 }
 
 
@@ -261,15 +272,31 @@ html body .invisible {
   gap: 12px;
 }
 
-.vector {
-  position: relative;
-  left: 150px;
-  top: 12px;
-}
 
 
 /* Font awesome */
 /* CHevrons */
-.fas{
-  color: #901C1C;
+.surface_left i,
+.surface_right i  {
+  color: #901c1c;
+  font-size: 48px;
+  padding: 34.36px;
+  
 }
+
+.item_close i{
+  color: #901c1c;
+  font-size: 48px;
+
+}
+
+.item_close{
+  background: none;
+  border: none;
+  position: absolute;
+  top: 70px;
+  right: 126px;
+
+}
+
+
