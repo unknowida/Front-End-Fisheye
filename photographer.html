@@ -5,12 +5,18 @@
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <link href="css/photographer.css" rel="stylesheet" type="text/css" />
 
-    <meta charset="utf-8" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez le travail de photographes indépendants !">
     <link rel="icon" type="image/png" href="assets/images/favicon.png" />
     <link
       href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
       rel="stylesheet"
     />
+    <!-- Icon FontAwesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+  integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous" />
     <title>Fisheye - photographe</title>
   </head>
 
@@ -51,18 +57,22 @@
         </button>
       </div>
     </main>
+
+
     <div id="zoom_media" class="invisible">
       <div class="zoom_media">
         <img src="assets/icons/close.svg" onclick="closeZoomMedia()">
         <button class="surface_left">
-          <img src="/assets/icons/Vector.svg" class="arrow_left" >
+          <i class="fas fa-chevron-left"></i>
         </button>
         <img class="zoom_image"/>
         <button class="surface_right">
-          <img src="/assets/icons/Vector.svg" class="arrow_right">
+          <i class="fas fa-chevron-right"></i>
         </button>
       </div>
     </div>
+    
+
     <div id="contact_modal">
       <div class="modal">
         <header>

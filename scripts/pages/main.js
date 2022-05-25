@@ -54,7 +54,7 @@ async function loadAndDisplayPhotographers() {
   )
 
   const photographerHeaderElementPhotographer = document.querySelector(
-    'photographer_header',
+    '.photographer_header',
   )
 
   // Création d'une boucle "for(const...of...){} qui va lire et associer dans l'ordre la variable "photograph" pour chaque accolade (ou tableau objet) du fichier JSON du la clé ["photographers"]
