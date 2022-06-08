@@ -1,3 +1,7 @@
 {
-  "recommendations": ["mgmcdermott.vscode-language-babel"]
+  "recommendations": [
+    "mgmcdermott.vscode-language-babel",
+    "ms-vsliveshare.vsliveshare",
+    "ritwickdey.LiveServer"
+  ]
 }

@@ -233,6 +233,35 @@ async function loadAndDisplayMedia(photographer, medias) {
     .addEventListener('click', () => {
       document.querySelector(`#zoom_media`).classList.add('invisible')
     })
+  
+  
+  
+
+  document
+    .querySelector(`#zoom_media .surface_right`)
+    .addEventListener('click', () => {
+      //recupere l'url image suivante dans le tableau des medias du photographe en cours et l'affiche dans le zoom media (sur la droite) 
+      const mediaElement = document.querySelector(`.zoom_image`)
+      const mediaId = mediaElement.getAttribute('data-id')
+
+      const indexMedia = medias.findIndex(
+        (element) => element.id === parseInt(mediaId),
+      };
+  
+  let nextMediaIndex;
+  if (indexMedia === medias.length - 1) {
+    nextMediaIndex = 0
+  } else {
+    nextMediaIndex = indexMedia + 1
+  }
+  const nextMedia = medias[nextMediaIndex];
+  mediaElement.setAttribute("data-id", nextMedia.id);
+  mediaElement.setAttribute("src", `assets/images/${nextMedia.photographerId}/${nextMedia.image}`);
+
+  
+  
+});
+}
 }
 
 // displayData(photographers);

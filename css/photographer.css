@@ -16,7 +16,6 @@
   width: 100%;
   height: 100%;
   background-color: #ffffff;
-  
 }
 .zoom_media {
   display: flex;
@@ -31,6 +30,7 @@
   color: #c4c4c4;
   width: 1050px;
   height: 900px;
+  object-fit: cover;
 }
 
 .surface_left,
@@ -39,7 +39,6 @@
   border: none;
   padding: 0px;
 }
-
 
 #contact_modal {
   display: none;
@@ -272,31 +271,24 @@ html body .invisible {
   gap: 12px;
 }
 
-
-
 /* Font awesome */
 /* CHevrons */
 .surface_left i,
-.surface_right i  {
+.surface_right i {
   color: #901c1c;
   font-size: 48px;
   padding: 34.36px;
-  
 }
 
-.item_close i{
+.item_close i {
   color: #901c1c;
   font-size: 48px;
-
 }
 
-.item_close{
+.item_close {
   background: none;
   border: none;
   position: absolute;
   top: 70px;
   right: 126px;
-
 }
-
-
